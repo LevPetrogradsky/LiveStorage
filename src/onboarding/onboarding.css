@@ -1,0 +1,128 @@
+.lifeos-onboarding {
+  --onboarding-bg: #f7f9fd;
+  --onboarding-surface: #fff;
+  --onboarding-ink: #172442;
+  --onboarding-muted: #52617a;
+  --onboarding-line: #dce5ef;
+  --onboarding-accent: #145adf;
+  --onboarding-soft: #edf4fc;
+  position: fixed;
+  inset-inline: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--onboarding-bg);
+  color: var(--onboarding-ink);
+  overflow: hidden;
+}
+
+[data-theme='dark'] .lifeos-onboarding {
+  --onboarding-bg: #171d27;
+  --onboarding-surface: #242d39;
+  --onboarding-ink: #f2f6fb;
+  --onboarding-muted: #b8c3d2;
+  --onboarding-line: #3d4a5b;
+  --onboarding-accent: #8cb8f6;
+  --onboarding-soft: #2a3b51;
+}
+
+.lifeos-onboarding__header {
+  min-height: 56px;
+  padding: env(safe-area-inset-top) max(24px, env(safe-area-inset-right)) 0 max(24px, env(safe-area-inset-left));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex: none;
+}
+.lifeos-onboarding__header > span:first-child,
+.lifeos-onboarding__back { min-width: 80px; }
+.lifeos-onboarding__back,
+.lifeos-onboarding__close {
+  border: 0;
+  background: transparent;
+  color: var(--onboarding-accent);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 0;
+}
+.lifeos-onboarding__close { min-width: 44px; justify-content: flex-end; }
+.lifeos-onboarding__progress { margin-left: auto; white-space: nowrap; color: var(--onboarding-muted); font-size: 14px; font-weight: 700; }
+.lifeos-onboarding__track { height: 3px; background: var(--onboarding-line); flex: none; }
+.lifeos-onboarding__track span { display: block; height: 100%; background: var(--onboarding-accent); transition: width .2s ease; }
+.lifeos-onboarding__content {
+  width: min(100%, 520px);
+  margin: 0 auto;
+  padding: 34px 24px 24px;
+  overflow-y: auto;
+  min-height: 0;
+  flex: 1;
+  overscroll-behavior: contain;
+}
+.lifeos-onboarding__eyebrow { margin: 0 0 12px; color: var(--onboarding-accent); letter-spacing: .16em; font-size: 13px; font-weight: 800; }
+.lifeos-onboarding h1 { margin: 0 0 12px; color: var(--onboarding-ink); font-size: clamp(29px, 8vw, 34px); line-height: 1.15; font-weight: 800; }
+.lifeos-onboarding__description { margin: 0; color: var(--onboarding-muted); font-size: 16px; line-height: 1.5; }
+.lifeos-onboarding__items { display: grid; gap: 12px; margin-top: 28px; }
+.lifeos-onboarding__feature,
+.lifeos-onboarding__destination {
+  min-height: 74px;
+  border: 1px solid var(--onboarding-line);
+  border-radius: 18px;
+  background: var(--onboarding-surface);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+}
+.lifeos-onboarding__icon { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: var(--onboarding-soft); color: var(--onboarding-accent); flex: none; }
+.lifeos-onboarding__feature span:last-child,
+.lifeos-onboarding__destination span:first-child { display: grid; gap: 3px; text-align: left; }
+.lifeos-onboarding__feature strong,
+.lifeos-onboarding__destination strong { font-size: 17px; }
+.lifeos-onboarding__feature small,
+.lifeos-onboarding__destination small { color: var(--onboarding-muted); font-size: 14px; line-height: 1.35; }
+.lifeos-onboarding__name { display: grid; gap: 12px; margin-top: 28px; font-size: 15px; }
+.lifeos-onboarding__name input { width: 100%; min-height: 52px; border: 1px solid var(--onboarding-line); border-radius: 14px; background: var(--onboarding-surface); color: var(--onboarding-ink); padding: 0 16px; font-size: 17px; scroll-margin-bottom: 20px; }
+.lifeos-onboarding__destination { width: 100%; color: var(--onboarding-ink); cursor: pointer; text-align: left; }
+.lifeos-onboarding__destination.is-selected { border-color: var(--onboarding-accent); background: var(--onboarding-soft); }
+.lifeos-onboarding__mark { width: 22px; height: 22px; border: 1.5px solid var(--onboarding-accent); border-radius: 50%; color: var(--onboarding-accent); margin-left: auto; flex: none; display: grid; place-items: center; }
+.lifeos-onboarding__destination.is-selected .lifeos-onboarding__mark { border: 0; }
+.lifeos-onboarding__footer { flex: none; border-top: 1px solid var(--onboarding-line); padding: 12px max(24px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left)); background: var(--onboarding-bg); }
+.lifeos-onboarding__primary { display: block; width: min(100%, 472px); min-height: 56px; margin: 0 auto; border: 0; border-radius: 18px; background: var(--onboarding-accent); color: #fff; font-size: 17px; font-weight: 700; }
+[data-theme='dark'] .lifeos-onboarding__primary { color: #102033; }
+.lifeos-onboarding__error { width: min(100%, 472px); margin: 0 auto 8px; color: #b33b30; font-size: 13px; }
+.lifeos-onboarding__one-page { max-width: 540px; width: 100%; margin-inline: auto; }
+.lifeos-onboarding__one-page .lifeos-onboarding__items { margin-top: 20px; gap: 9px; }
+.lifeos-onboarding__one-page .lifeos-onboarding__feature { min-height: 58px; padding: 9px 12px; border-radius: 14px; }
+.lifeos-onboarding__one-page .lifeos-onboarding__name { margin-top: 20px; gap: 8px; }
+.lifeos-onboarding__global-choice { display: flex; align-items: flex-start; gap: 10px; margin-top: 20px; color: var(--onboarding-ink); font-size: 14px; line-height: 1.45; }
+.lifeos-onboarding__global-choice input { flex: none; width: 20px; height: 20px; margin: 0; accent-color: var(--onboarding-accent); }
+.lifeos-onboarding__skip { display: block; min-height: 42px; margin: 8px auto 0; padding: 5px 12px; border: 0; background: transparent; color: var(--onboarding-accent); font: inherit; font-size: 13px; font-weight: 700; }
+.lifeos-onboarding__account-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 22px auto 0;
+}
+.lifeos-onboarding__account-options button {
+  min-height: 44px;
+  padding: 8px 6px;
+  border: 1px solid var(--onboarding-accent);
+  border-radius: 12px;
+  background: var(--onboarding-surface);
+  color: var(--onboarding-accent);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.lifeos-onboarding__account-options + .lifeos-onboarding__items { margin-top: 16px; gap: 8px; }
+.lifeos-onboarding__account { margin-top: 22px; }
+.lifeos-onboarding__account .settings-page__account { color: var(--onboarding-ink); }
+.lifeos-onboarding__account .settings-page__description { color: var(--onboarding-muted); }
+.lifeos-onboarding button:focus-visible,
+.lifeos-onboarding input:focus-visible { outline: 2px solid var(--onboarding-accent); outline-offset: 3px; }

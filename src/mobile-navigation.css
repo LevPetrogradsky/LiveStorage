@@ -1,0 +1,79 @@
+@media (max-width: 760px) {
+  .app-shell {
+    --life-mobile-nav-height: calc(78px + env(safe-area-inset-bottom));
+  }
+
+  :root[data-theme='light'] .app-shell .mobile-nav {
+    --mobile-nav-accent: #6550c8;
+    --mobile-nav-active: #4e34b8;
+    --mobile-nav-selected: #eeeaff;
+  }
+
+  :root[data-theme='dark'] .app-shell .mobile-nav {
+    --mobile-nav-accent: #c5b9ff;
+    --mobile-nav-active: #e0d9ff;
+    --mobile-nav-selected: #39334c;
+  }
+
+  .app-shell .mobile-nav {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(var(--life-mobile-nav-columns), minmax(0, 1fr));
+    grid-auto-rows: 62px;
+    align-content: start;
+    align-items: stretch;
+    gap: 4px;
+    height: var(--life-mobile-nav-height);
+    padding: 7px max(8px, env(safe-area-inset-right))
+      calc(8px + env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-left));
+    border-top: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .app-shell .main-area:not(:has(> .life-main-home)) {
+    padding-bottom: var(--life-mobile-nav-extra);
+  }
+
+  .app-shell .mobile-nav .nav-button {
+    min-width: 0;
+    height: 62px;
+    min-height: 0;
+    gap: 3px;
+    padding: 6px 3px;
+    border-radius: 13px;
+    font-size: clamp(10px, 2.7vw, 12px);
+    font-weight: 700;
+    line-height: 1.12;
+    text-align: center;
+    background: var(--surface);
+    color: var(--mobile-nav-accent);
+  }
+
+  .app-shell .mobile-nav .nav-button svg {
+    width: 23px;
+    height: 23px;
+    flex: none;
+    stroke-width: 1.9;
+  }
+
+  .app-shell .mobile-nav .nav-button span {
+    max-width: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow-wrap: anywhere;
+  }
+
+  .app-shell .mobile-nav .nav-button.selected {
+    background: var(--mobile-nav-selected);
+    color: var(--mobile-nav-active);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--mobile-nav-active) 16%, transparent);
+  }
+
+  .app-shell .mobile-nav .nav-button:focus-visible {
+    outline: 2px solid var(--mobile-nav-active);
+    outline-offset: -2px;
+  }
+
+}

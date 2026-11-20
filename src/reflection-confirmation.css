@@ -1,0 +1,29 @@
+.lifeos-reflection-confirmation {
+  position: fixed;
+  z-index: 35;
+  inset-inline: 24px;
+  bottom: 24px;
+  width: fit-content;
+  max-width: calc(100vw - 48px);
+  padding: 11px 16px;
+  border: 1px solid #c3dfd1;
+  border-radius: 13px;
+  background: #f3faf6;
+  box-shadow: 0 6px 24px #071d221f;
+  color: #173328;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+[data-theme='dark'] .lifeos-reflection-confirmation {
+  border-color: #476658;
+  background: #253a31;
+  color: #e4f4e9;
+}
+
+@media (max-width: 760px) {
+  .lifeos-reflection-confirmation {
+    inset-inline: 16px;
+    bottom: calc(var(--life-mobile-nav-height, 78px) + 8px);
+  }
+}
