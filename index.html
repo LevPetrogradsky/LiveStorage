@@ -36,7 +36,14 @@
         padding: 12px max(24px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
         border-top: 1px solid #dce5ef;
       }
-      .primary, .back { display: flex; align-items: center; justify-content: center; font-weight: 700; }
+      .storage-nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        width: min(100%, 472px);
+        margin: 8px auto 0;
+      }
+      .primary, .storage-nav a { display: flex; align-items: center; justify-content: center; font-weight: 700; }
       .primary {
         width: min(100%, 472px);
         min-height: 56px;
@@ -48,7 +55,7 @@
         text-align: center;
         text-decoration: none;
       }
-      .back { width: fit-content; min-height: 44px; margin-left: auto; color: #145adf; }
+      .storage-nav a { min-height: 44px; color: #145adf; }
       :focus-visible { outline: 3px solid #172442; outline-offset: 4px; }
     </style>
   </head>
@@ -60,7 +67,10 @@
     </main>
     <footer>
       <a class="primary" href="https://lifeos-demo-kappa.vercel.app/?open=storage">Открыть хранилище</a>
-      <a class="back" href="https://lifeos-demo-kappa.vercel.app/">Назад в хаб</a>
+      <nav class="storage-nav" aria-label="Навигация LifeStorage">
+        <a href="/" aria-current="page" lang="en">Home</a>
+        <a href="https://lifeos-demo-kappa.vercel.app/">Назад в хаб</a>
+      </nav>
     </footer>
   </body>
 </html>
